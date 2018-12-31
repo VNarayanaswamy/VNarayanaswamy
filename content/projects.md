@@ -1,5 +1,5 @@
 ---
-title: "projects"
+title: "Projects"
 date: "2018-12-31T15:55:51-07:00"
 ---
 
