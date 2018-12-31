@@ -15,9 +15,13 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [[menu.main]]
     name = "GitHub"
     url = "https://github.com/VNarayanaswamy"
+[[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    
 
 [params]
-    description = "A website for health Analytics."
+    description = "A website for health analytics."
 
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"

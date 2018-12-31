@@ -6,28 +6,28 @@
     <description>Recent content on Analytics by Vignesh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Dec 2018 15:55:51 -0700</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>First Post</title>
-      <link>/2018/12/31/first-post/</link>
-      <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
+      <title>projects</title>
+      <link>/projects/</link>
+      <pubDate>Mon, 31 Dec 2018 15:55:51 -0700</pubDate>
       
-      <guid>/2018/12/31/first-post/</guid>
-      <description>library(ggplot2)# Generate some sample data, then compute mean and standard deviation# in each group this is a test sentance. tsting. df &amp;lt;- data.frame(gp = factor(rep(letters[1:3], each = 10)),y = rnorm(30))ds &amp;lt;- do.call(rbind, lapply(split(df, df$gp), function(d) {data.frame(mean = mean(d$y), sd = sd(d$y), gp = d$gp)}))# The summary data frame ds is used to plot larger red points on top# of the raw data.</description>
+      <guid>/projects/</guid>
+      <description>Bodyweight Tracker</description>
     </item>
     
     <item>
-      <title>A Plain Markdown Post</title>
-      <link>/2016/12/30/a-plain-markdown-post/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
+      <title>Building a Bodyweight Tracker</title>
+      <link>/2018/12/31/building-a-bodyweight-tracker/</link>
+      <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2016/12/30/a-plain-markdown-post/</guid>
-      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
+      <guid>/2018/12/31/building-a-bodyweight-tracker/</guid>
+      <description>StepsCreate a google sheetName sheet “Bodyweight Tracker”Create Shiny AppShiny App CodeLoad the necessary R Packages:
+# Define list of required packagespackages&amp;lt;-c(&amp;quot;shiny&amp;quot;, &amp;quot;googlesheets&amp;quot;,&amp;quot;DT&amp;quot;,&amp;quot;ggplot2&amp;quot;,&amp;quot;ggplot2&amp;quot;, &amp;quot;dplyr&amp;quot;)#logical vector that lists which packages are already installedpackages_checked&amp;lt;-(packages %in% installed.packages()[,1])#list of packages that are not installedpackages_required &amp;lt;- packages[!packages_checked]#install packages that are requiredif (sum(!(packages_checked))&amp;gt;0) { install.packages(packages_required)}#load packages&amp;quot;getSymbols.warning4.0&amp;quot;=FALSElapply(packages, require, character.</description>
     </item>
     
     <item>
@@ -37,26 +37,6 @@
       
       <guid>/about/</guid>
       <description>The theme for this website was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>/2015/01/01/lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      
-      <guid>/2015/01/01/lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
   </channel>

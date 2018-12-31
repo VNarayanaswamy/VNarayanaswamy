@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.53" />
+
+
+<title>Building a Bodyweight Tracker - Analytics by Vignesh</title>
+<meta property="og:title" content="Building a Bodyweight Tracker - Analytics by Vignesh">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo2.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/VNarayanaswamy">GitHub</a></li>
+    
+    <li><a href="/projects/">Projects</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Building a Bodyweight Tracker</h1>
+
+    
+    <span class="article-date">2018/12/31</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="steps" class="section level1">
+<h1>Steps</h1>
+<ol style="list-style-type: decimal">
+<li>Create a google sheet</li>
+</ol>
+<ul>
+<li>Name sheet “Bodyweight Tracker”</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Create Shiny App</li>
+</ol>
+</div>
+<div id="shiny-app-code" class="section level1">
+<h1>Shiny App Code</h1>
+<p>Load the necessary R Packages:</p>
+<pre class="r"><code># Define list of required packages
+packages&lt;-c(&quot;shiny&quot;, &quot;googlesheets&quot;,&quot;DT&quot;,&quot;ggplot2&quot;,&quot;ggplot2&quot;, &quot;dplyr&quot;)
+#logical vector that lists which packages are already installed
+packages_checked&lt;-(packages %in% installed.packages()[,1])
+#list of packages that are not installed
+packages_required &lt;- packages[!packages_checked]
+#install packages that are required
+if (sum(!(packages_checked))&gt;0) {  
+  install.packages(packages_required)
+}
+#load packages
+&quot;getSymbols.warning4.0&quot;=FALSE
+lapply(packages, require, character.only= TRUE)
+rm(packages,packages_checked, packages_required)</code></pre>
+<pre class="r"><code>#Create Google Sheet object
+
+bodyweight_sheet &lt;- gs_url(&quot;https://docs.google.com/spreadsheets/d/YOURAPIKEY/edit?usp=sharing&quot;)
+
+bodyweight_table &lt;- gs_read(bodyweight_sheet)</code></pre>
+<p>Define Server Logic:</p>
+<pre class="r"><code>server&lt;- (function(input, output, session) {
+  
+  #Table of raw data
+  output$the_data &lt;- renderDataTable({
+    
+    datatable(bodyweight_table)
+    
+  })
+  
+  
+  #Time series plot of bodyweight
+  output$the_graph &lt;- renderPlot({
+    
+    ggplot(data = bodyweight_table, aes(x = as.Date(bodyweight_table$Date, &quot;%m/%d/%Y&quot;), y = bodyweight_table$Bodyweight)) +
+      geom_point(color=&quot;red&quot;)+
+      geom_line()+
+      stat_smooth(method=&quot;auto&quot;)+ 
+      labs(x = &quot;Date&quot;, y=&quot;Bodyweight (lbs)&quot;)
+    
+  })
+  
+
+    #Time series plot of weekly bodyweight rate of change  
+  output$weekly_loss &lt;- renderPlot({
+    
+    ggplot(data = bodyweight_table, aes(x = as.Date(bodyweight_table$Date, &quot;%m/%d/%Y&quot;), y = bodyweight_table$Weekly_Rate)) +
+      geom_point(color=&quot;red&quot;)+
+      geom_line()+
+      geom_hline(yintercept=-.02, linetype=&quot;dashed&quot;, color = &quot;red&quot;, size=2)+
+      geom_hline(yintercept=-.01, linetype=&quot;dashed&quot;, color = &quot;red&quot;, size=2)+
+      stat_smooth(method=&quot;auto&quot;)+ 
+      labs(x = &quot;Date&quot;, y=&quot;Percent Bodyweight Change Per Week&quot;)
+    
+  })
+  
+  
+  #Tooltip functionality
+  output$info &lt;- renderText({
+    paste0(&quot;x=&quot;, input$plot_click$x, &quot;\ny=&quot;, input$plot_click$y)
+  })
+  
+})</code></pre>
+<pre class="r"><code>#Define UI Laylout
+ui&lt;-(
+  fluidPage(
+    titlePanel(&quot;Bodyweight Tracker&quot;),
+    sidebarLayout(
+      sidebarPanel(
+        tags$a(href=&quot;Hyperlink to your Google Sheet&quot;, &quot;Click for raw data&quot;)
+      ),
+      mainPanel(
+        tabsetPanel(type = &quot;tabs&quot;,
+                    tabPanel(&quot;Daily Bodyweight&quot;, plotOutput(&quot;the_graph&quot;, click = &quot;plot_click&quot;),verbatimTextOutput(&quot;info&quot;)),
+                    tabPanel(&quot;Weekly Change&quot;, plotOutput(&quot;weekly_loss&quot;)),
+                    tabPanel(&quot;Raw Data&quot;, dataTableOutput(&quot;the_data&quot;))
+        )
+      )
+    )
+  ))
+
+
+# Run the application 
+shinyApp(ui = ui, server = server)</code></pre>
+<iframe width="450" height="400" scrolling="no" frameborder="no" src="https://brettory.shinyapps.io/gender_tech_country/">
+</iframe>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

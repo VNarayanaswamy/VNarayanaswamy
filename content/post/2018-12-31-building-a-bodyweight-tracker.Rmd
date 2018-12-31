@@ -1,0 +1,128 @@
+---
+title: Building a Bodyweight Tracker
+author: Vignesh Narayanaswamy
+date: '2018-12-31'
+slug: building-a-bodyweight-tracker
+categories:
+  - Shiny
+tags:
+  - Health Analytics
+  - R
+  - Shiny
+  - RShiny
+  - Google Sheets
+---
+
+
+# Steps
+
+1. Create a google sheet
+  + Name sheet "Bodyweight Tracker"
+2. Create Shiny App
+
+
+# Shiny App Code
+
+Load the necessary R Packages:
+```{r eval=FALSE}
+# Define list of required packages
+packages<-c("shiny", "googlesheets","DT","ggplot2","ggplot2", "dplyr")
+#logical vector that lists which packages are already installed
+packages_checked<-(packages %in% installed.packages()[,1])
+#list of packages that are not installed
+packages_required <- packages[!packages_checked]
+#install packages that are required
+if (sum(!(packages_checked))>0) {  
+  install.packages(packages_required)
+}
+#load packages
+"getSymbols.warning4.0"=FALSE
+lapply(packages, require, character.only= TRUE)
+rm(packages,packages_checked, packages_required)
+```
+
+```{r eval=FALSE}
+#Create Google Sheet object
+
+bodyweight_sheet <- gs_url("https://docs.google.com/spreadsheets/d/YOURAPIKEY/edit?usp=sharing")
+
+bodyweight_table <- gs_read(bodyweight_sheet)
+
+```
+
+Define Server Logic:
+```{r eval=FALSE}
+
+server<- (function(input, output, session) {
+  
+  #Table of raw data
+  output$the_data <- renderDataTable({
+    
+    datatable(bodyweight_table)
+    
+  })
+  
+  
+  #Time series plot of bodyweight
+  output$the_graph <- renderPlot({
+    
+    ggplot(data = bodyweight_table, aes(x = as.Date(bodyweight_table$Date, "%m/%d/%Y"), y = bodyweight_table$Bodyweight)) +
+      geom_point(color="red")+
+      geom_line()+
+      stat_smooth(method="auto")+ 
+      labs(x = "Date", y="Bodyweight (lbs)")
+    
+  })
+  
+
+    #Time series plot of weekly bodyweight rate of change  
+  output$weekly_loss <- renderPlot({
+    
+    ggplot(data = bodyweight_table, aes(x = as.Date(bodyweight_table$Date, "%m/%d/%Y"), y = bodyweight_table$Weekly_Rate)) +
+      geom_point(color="red")+
+      geom_line()+
+      geom_hline(yintercept=-.02, linetype="dashed", color = "red", size=2)+
+      geom_hline(yintercept=-.01, linetype="dashed", color = "red", size=2)+
+      stat_smooth(method="auto")+ 
+      labs(x = "Date", y="Percent Bodyweight Change Per Week")
+    
+  })
+  
+  
+  #Tooltip functionality
+  output$info <- renderText({
+    paste0("x=", input$plot_click$x, "\ny=", input$plot_click$y)
+  })
+  
+})
+
+```
+
+```{r eval=FALSE}
+
+#Define UI Laylout
+ui<-(
+  fluidPage(
+    titlePanel("Bodyweight Tracker"),
+    sidebarLayout(
+      sidebarPanel(
+        tags$a(href="Hyperlink to your Google Sheet", "Click for raw data")
+      ),
+      mainPanel(
+        tabsetPanel(type = "tabs",
+                    tabPanel("Daily Bodyweight", plotOutput("the_graph", click = "plot_click"),verbatimTextOutput("info")),
+                    tabPanel("Weekly Change", plotOutput("weekly_loss")),
+                    tabPanel("Raw Data", dataTableOutput("the_data"))
+        )
+      )
+    )
+  ))
+
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+
+```
+
+
+<iframe width="450" height="400" scrolling="no" frameborder="no"  src="https://brettory.shinyapps.io/gender_tech_country/"> </iframe>
