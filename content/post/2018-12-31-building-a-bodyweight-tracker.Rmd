@@ -41,8 +41,8 @@ lapply(packages, require, character.only= TRUE)
 rm(packages,packages_checked, packages_required)
 ```
 
+Create Google Sheet object:
 ```{r eval=FALSE}
-#Create Google Sheet object
 
 bodyweight_sheet <- gs_url("https://docs.google.com/spreadsheets/d/YOURAPIKEY/edit?usp=sharing")
 
@@ -98,9 +98,9 @@ server<- (function(input, output, session) {
 
 ```
 
+#Define UI Layout:
 ```{r eval=FALSE}
 
-#Define UI Laylout
 ui<-(
   fluidPage(
     titlePanel("Bodyweight Tracker"),

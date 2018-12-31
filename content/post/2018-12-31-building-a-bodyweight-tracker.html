@@ -44,9 +44,8 @@ if (sum(!(packages_checked))&gt;0) {
 &quot;getSymbols.warning4.0&quot;=FALSE
 lapply(packages, require, character.only= TRUE)
 rm(packages,packages_checked, packages_required)</code></pre>
-<pre class="r"><code>#Create Google Sheet object
-
-bodyweight_sheet &lt;- gs_url(&quot;https://docs.google.com/spreadsheets/d/YOURAPIKEY/edit?usp=sharing&quot;)
+<p>Create Google Sheet object:</p>
+<pre class="r"><code>bodyweight_sheet &lt;- gs_url(&quot;https://docs.google.com/spreadsheets/d/YOURAPIKEY/edit?usp=sharing&quot;)
 
 bodyweight_table &lt;- gs_read(bodyweight_sheet)</code></pre>
 <p>Define Server Logic:</p>
@@ -92,8 +91,10 @@ bodyweight_table &lt;- gs_read(bodyweight_sheet)</code></pre>
   })
   
 })</code></pre>
-<pre class="r"><code>#Define UI Laylout
-ui&lt;-(
+</div>
+<div id="define-ui-layout" class="section level1">
+<h1>Define UI Layout:</h1>
+<pre class="r"><code>ui&lt;-(
   fluidPage(
     titlePanel(&quot;Bodyweight Tracker&quot;),
     sidebarLayout(
