@@ -125,5 +125,5 @@ shinyApp(ui = ui, server = server)
 ```
 
 
-<iframe width="450" height="400" scrolling="no" frameborder="no"  
+<iframe width="1000" height="1000" scrolling="no" frameborder="no"  
 src="https://vigneshn.shinyapps.io/bodyweight/"> </iframe>
