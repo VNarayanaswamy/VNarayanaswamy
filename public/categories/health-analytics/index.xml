@@ -1,25 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Health Analytics on Analytics by Vignesh</title>
-    <link>/categories/health-analytics/</link>
-    <description>Recent content in Health Analytics on Analytics by Vignesh</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 31 Dec 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/health-analytics/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Building a Bodweight Tracker</title>
-      <link>/2018/12/31/building-a-bodweight-tracker/</link>
-      <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/12/31/building-a-bodweight-tracker/</guid>
-      <description>StepsCreate a google sheetName sheet “Bodyweight Tracker”Create Shiny AppYou can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.:19.0 3rd Qu.: 56.00 ## Max. :25.0 Max. :120.00fit &amp;lt;- lm(dist ~ speed, data = cars)fit## ## Call:## lm(formula = dist ~ speed, data = cars)## ## Coefficients:## (Intercept) speed ## -17.</description>
-    </item>
-    
-  </channel>
-</rss>

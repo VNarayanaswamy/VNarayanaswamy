@@ -12,7 +12,8 @@ tags:
   - RShiny
   - Google Sheets
 ---
-
+# Overview:
+This project is designed to help users track their bodyweight via a google sheet and build an app using Shiny that updates in real time to visualize weightloss progress. Checkout Part 2 (coming soon) of this project which includes a predictive model to help users identify target caloric intake during dieting.
 
 # Steps
 
@@ -36,7 +37,6 @@ if (sum(!(packages_checked))>0) {
   install.packages(packages_required)
 }
 #load packages
-"getSymbols.warning4.0"=FALSE
 lapply(packages, require, character.only= TRUE)
 rm(packages,packages_checked, packages_required)
 ```
@@ -123,6 +123,15 @@ ui<-(
 shinyApp(ui = ui, server = server)
 
 ```
+
+#Setting up app on Shiny.io
+
+There are 3 main options for using your shiny app
+
+1. Run the app locally (beginner)
+2. Run the app remotely by hosting through RStudio's Shiny Server (intermediate)
+2. RUn the app remotely by hosting the app on your site (difficult)
+
 
 
 <iframe width="1000" height="1000" scrolling="no" frameborder="no"  

@@ -1,0 +1,27 @@
+---
+title: Dashboard and Predictive Modeling in R for Cutting Phase
+author: Vignesh Narayanaswamy
+date: '2019-01-11'
+slug: dashboard-and-predictive-modeling-in-r-for-cutting-phase
+categories: []
+tags: []
+---
+
+Check out Part 1 of this series, which details how to build a Shiny app and simple repository using google sheets to visualize bodyweight data realtime. 
+
+#Overview
+Changes in bodyweight can be largely classified into three categories.
+
+1. Cutting - losing bodyweight
+2. Maintenance - maintaining bodyweight   
+3. Massing - gaining bodyweight
+
+This article focuses on the intentional loss of bodyweight, which typically entails losing bodyfat while maintaining muscle mass. 
+
+Research suggests a weight loss rate of 1-2% of bodyweight is the maximum amount of weightloss suggested for sustainable weightloss. 
+
+Modeling approach:
+
+
+Model assumptions:
+

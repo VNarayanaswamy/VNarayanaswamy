@@ -6,10 +6,39 @@
     <description>Recent content on Analytics by Vignesh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Dec 2018 15:55:51 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 11 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title> Dashboard and Predictive Model for Cutting, Maintenance, and Massing </title>
+      <link>/2019/01/11/dashboard-and-predictive-model-for-cutting-maintenance-and-massing/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/11/dashboard-and-predictive-model-for-cutting-maintenance-and-massing/</guid>
+      <description>Check out Part 1 of this series, which details how to build a Shiny app and simple repository using google sheets to visualize bodyweight data realtime.
+OverviewResearch suggests a weight loss rate of 1-2% of bodyweight is the maximum amount of weightloss suggested for sustainable weightloss.
+</description>
+    </item>
+    
+    <item>
+      <title>Mining Fitbit Data with R</title>
+      <link>/2019/01/11/mining-fitbit-data-with-r/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/11/mining-fitbit-data-with-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualizing Run Data with R Shiny</title>
+      <link>/2019/01/11/visualizing-run-data-with-r-shiny/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/11/visualizing-run-data-with-r-shiny/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Projects</title>
@@ -26,8 +55,8 @@
       <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/12/31/building-a-bodyweight-tracker/</guid>
-      <description>StepsCreate a google sheetName sheet “Bodyweight Tracker”Create Shiny AppShiny App CodeLoad the necessary R Packages:
-# Define list of required packagespackages&amp;lt;-c(&amp;quot;shiny&amp;quot;, &amp;quot;googlesheets&amp;quot;,&amp;quot;DT&amp;quot;,&amp;quot;ggplot2&amp;quot;,&amp;quot;ggplot2&amp;quot;, &amp;quot;dplyr&amp;quot;)#logical vector that lists which packages are already installedpackages_checked&amp;lt;-(packages %in% installed.packages()[,1])#list of packages that are not installedpackages_required &amp;lt;- packages[!packages_checked]#install packages that are requiredif (sum(!(packages_checked))&amp;gt;0) { install.packages(packages_required)}#load packages&amp;quot;getSymbols.warning4.0&amp;quot;=FALSElapply(packages, require, character.</description>
+      <description>Overview:This project is designed to help users track their bodyweight via a google sheet and build an app using Shiny that updates in real time and visualizes weightloss progress. Checkout Part 2 of this project which includes a predictive model to help users identify target caloric intake during dieting, maintenance, and massing phases.
+StepsCreate a google sheetName sheet “Bodyweight Tracker”Create Shiny AppShiny App CodeLoad the necessary R Packages:</description>
     </item>
     
     <item>
@@ -37,6 +66,51 @@
       
       <guid>/about/</guid>
       <description>The theme for this website was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Building a Bodyweight Trackerdiv.sourceCode { overflow-x: auto; }table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {margin: 0; padding: 0; vertical-align: baseline; border: none; }table.sourceCode { width: 100%; line-height: 100%; }td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }td.sourceCode { padding-left: 5px; }code  span.kw { color: #007020; font-weight: bold; } /* Keyword */code  span.dt { color: #902000; } /* DataType */code  span.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Building a Bodyweight Trackerdiv.sourceCode { overflow-x: auto; }table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {margin: 0; padding: 0; vertical-align: baseline; border: none; }table.sourceCode { width: 100%; line-height: 100%; }td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }td.sourceCode { padding-left: 5px; }code  span.kw { color: #007020; font-weight: bold; } /* Keyword */code  span.dt { color: #902000; } /* DataType */code  span.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Building a Bodyweight Trackerdiv.sourceCode { overflow-x: auto; }table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {margin: 0; padding: 0; vertical-align: baseline; border: none; }table.sourceCode { width: 100%; line-height: 100%; }td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }td.sourceCode { padding-left: 5px; }code  span.kw { color: #007020; font-weight: bold; } /* Keyword */code  span.dt { color: #902000; } /* DataType */code  span.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Building a Bodyweight Trackerdiv.sourceCode { overflow-x: auto; }table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {margin: 0; padding: 0; vertical-align: baseline; border: none; }table.sourceCode { width: 100%; line-height: 100%; }td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }td.sourceCode { padding-left: 5px; }code  span.kw { color: #007020; font-weight: bold; } /* Keyword */code  span.dt { color: #902000; } /* DataType */code  span.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Building a Bodyweight Trackerdiv.sourceCode { overflow-x: auto; }table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {margin: 0; padding: 0; vertical-align: baseline; border: none; }table.sourceCode { width: 100%; line-height: 100%; }td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }td.sourceCode { padding-left: 5px; }code  span.kw { color: #007020; font-weight: bold; } /* Keyword */code  span.dt { color: #902000; } /* DataType */code  span.</description>
     </item>
     
   </channel>

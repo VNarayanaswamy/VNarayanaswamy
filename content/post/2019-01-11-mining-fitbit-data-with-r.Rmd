@@ -1,0 +1,8 @@
+---
+title: Mining Fitbit Data with R
+author: Vignesh Narayanaswamy
+date: '2019-01-11'
+slug: mining-fitbit-data-with-r
+categories: []
+tags: []
+---
